@@ -23,6 +23,19 @@ class Reel extends StatefulWidget {
 }
 
 class _ReelState extends State<Reel> {
+  String? currentImage;
+
+  @override
+  void initState() {
+    super.initState();
+    currentImage = widget.image;
+  }
+
+  void changeImage(String newImage) {
+    setState(() {
+      currentImage = newImage;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,7 +119,7 @@ class _ReelState extends State<Reel> {
                   ],
                 ),
                 SizedBox(height: 16),
-                Image.asset('${widget.image}'),
+                Image.asset('$currentImage', height: 286),
                 // SizedBox(height: 10),
                 Container(
                   height: 84,
@@ -114,44 +127,56 @@ class _ReelState extends State<Reel> {
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.symmetric(horizontal: 24),
                     children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xffF6F5F8),
-                          borderRadius: BorderRadius.circular(8),
+                      GestureDetector(
+                        onTap: () => changeImage('lib/assets/c1.png'),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xffF6F5F8),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          height: 84,
+                          width: 84,
+                          child: Image.asset('lib/assets/c1.png'),
                         ),
-                        height: 84,
-                        width: 84,
-                        child: Image.asset('lib/assets/c1.png'),
                       ),
                       SizedBox(width: 24),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xffF6F5F8),
-                          borderRadius: BorderRadius.circular(8),
+                      GestureDetector(
+                        onTap: () => changeImage('lib/assets/c2.png'),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xffF6F5F8),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          height: 84,
+                          width: 84,
+                          child: Image.asset('lib/assets/c2.png'),
                         ),
-                        height: 84,
-                        width: 84,
-                        child: Image.asset('lib/assets/c2.png'),
                       ),
                       SizedBox(width: 24),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xffF6F5F8),
-                          borderRadius: BorderRadius.circular(8),
+                      GestureDetector(
+                        onTap: () => changeImage('lib/assets/c3.png'),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xffF6F5F8),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          height: 84,
+                          width: 84,
+                          child: Image.asset('lib/assets/c3.png'),
                         ),
-                        height: 84,
-                        width: 84,
-                        child: Image.asset('lib/assets/c3.png'),
                       ),
                       SizedBox(width: 24),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xffF6F5F8),
-                          borderRadius: BorderRadius.circular(8),
+                      GestureDetector(
+                        onTap: () => changeImage('lib/assets/c4.png'),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xffF6F5F8),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          height: 84,
+                          width: 84,
+                          child: Image.asset('lib/assets/c4.png'),
                         ),
-                        height: 84,
-                        width: 84,
-                        child: Image.asset('lib/assets/c4.png'),
                       ),
                       SizedBox(width: 24),
                     ],
