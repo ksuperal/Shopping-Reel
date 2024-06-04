@@ -8,6 +8,7 @@ class Reel extends StatefulWidget {
   final image;
   final pointcash;
   final cash;
+  final bool isIphone;
   const Reel(
       {Key? key,
       required this.title,
@@ -15,7 +16,8 @@ class Reel extends StatefulWidget {
       required this.discountprice,
       required this.image,
       required this.pointcash,
-      required this.cash})
+      required this.cash,
+      required this.isIphone})
       : super(key: key);
 
   @override
@@ -24,6 +26,7 @@ class Reel extends StatefulWidget {
 
 class _ReelState extends State<Reel> {
   String? currentImage;
+  bool _isTapped = false;
 
   @override
   void initState() {
@@ -121,6 +124,7 @@ class _ReelState extends State<Reel> {
                 SizedBox(height: 16),
                 Image.asset('$currentImage', height: 286),
                 // SizedBox(height: 10),
+                if( widget.isIphone == true)
                 Container(
                   height: 84,
                   child: ListView(
@@ -186,6 +190,12 @@ class _ReelState extends State<Reel> {
               ],
             ),
           ),
+          if (_isTapped)
+        Positioned.fill(
+          child: Container(
+            color: Colors.black.withOpacity(0.5),
+          ),
+        ),
           Positioned(
                   bottom: 0,
                   right: 24,
@@ -205,6 +215,80 @@ class _ReelState extends State<Reel> {
                     ],
                   ),
                 ),
+
+            Positioned(
+              left: 24,
+              
+              bottom: _isTapped? 120:24,
+              child: Container(
+                width: 283,
+                child:Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                     children: [
+                       Image.asset('lib/assets/logo.png', width: 32, height: 32),
+                       SizedBox(width:8),
+                        Text('อะกิฮาบารา จำกัด', style: TextStyle(color: _isTapped? Colors.white: Color(0xff29282E), fontSize: 18, fontWeight: FontWeight.bold)),
+                     ],
+                    ),
+                    SizedBox(height: 10),
+                    Column(
+                      children: [
+                        Container(
+                      width: 283,
+                      height: 43,
+                      decoration: BoxDecoration(
+                        color: Color(0xffFFFFFF),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                      child: Column(
+                        children: [
+                          Row(
+                            
+                            children: [
+                              Text(
+                                'ดูรายระเอียดเพิ่มเติม', 
+                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                              ),
+                              Spacer(),
+                              Icon(Icons.arrow_forward_ios, size: 16, color: Color(0xff29282E)),
+                            ],
+                          ),
+                          
+                          
+                        ],
+                      ),
+                    )
+                    ),
+                    SizedBox(height: 3),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _isTapped = !_isTapped;
+                        });
+                      },
+                          child:Container(
+                              height: 30,  // Specify your desired height
+                              child: Text(
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
+                                style: TextStyle(fontSize: 12, 
+                                color: _isTapped? Colors.white: Color(0xff29282E), ),
+                                maxLines: _isTapped? 10:1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                    ),
+                      ],
+                    ),
+                    
+                  ],
+                ),
+              ),
+            ),
         ],
         
       ),

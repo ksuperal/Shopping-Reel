@@ -21,6 +21,7 @@ class _ReelPageState extends State<ReelPage> {
         image: 'lib/assets/alliphone.png',
         pointcash: '108,000',
         cash: '18,000 ฿',
+        isIphone: true,
       ),
             Reel(
         title: 'iPhone 15 128GB',
@@ -29,6 +30,7 @@ class _ReelPageState extends State<ReelPage> {
         image: 'lib/assets/alliphone.png',
         pointcash: '108,000',
         cash: '18,000 ฿',
+        isIphone: true,
       ),
             Reel(
         title: 'iPhone 15 128GB',
@@ -37,6 +39,7 @@ class _ReelPageState extends State<ReelPage> {
         image: 'lib/assets/alliphone.png',
         pointcash: '108,000',
         cash: '18,000 ฿',
+        isIphone: false,
       ),
       
     ];
